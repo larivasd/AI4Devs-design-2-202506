@@ -101,20 +101,20 @@ Se ha elegido la User Story de mayor prioridad, **US-001: Creación y publicaci�
 
 A continuación, se añade la estimación de esfuerzo a cada ticket utilizando Puntos de Historia (Story Points) basados en la secuencia de Fibonacci.
 
-* **ID del Ticket: T-001** (Diseñar y migrar el esquema de la base de datos)
-    * **Estimación (Story Points): 2**
+* **ID del Ticket: T-001** (Diseñar y migrar el esquema de la base de datos)  
+    * **Estimación (Story Points): 2**  
     * **Justificación:** Tarea bien definida con baja complejidad. Requiere conocimiento de la estructura de la base de datos, pero la ejecución es rápida.
 
-* **ID del Ticket: T-002** (Crear endpoint de API)
-    * **Estimación (Story Points): 3**
+* **ID del Ticket: T-002** (Crear endpoint de API)  
+    * **Estimación (Story Points): 3**  
     * **Justificación:** Es un trabajo de desarrollo estándar, pero implica lógica de negocio (validación, manejo de estados) que añade una complejidad moderada.
 
-* **ID del Ticket: T-003** (Desarrollar la interfaz de usuario)
-    * **Estimación (Story Points): 5**
+* **ID del Ticket: T-003** (Desarrollar la interfaz de usuario)  
+    * **Estimación (Story Points): 5**  
     * **Justificación:** La creación de formularios robustos en el frontend suele ser compleja. Implica gestión del estado, validación en el cliente, interacción con un editor de texto enriquecido y comunicación asíncrona con la API, lo que representa un esfuerzo considerable.
 
-* **ID del Ticket: T-004** (Plan de pruebas y ejecución)
-    * **Estimación (Story Points): 3**
+* **ID del Ticket: T-004** (Plan de pruebas y ejecución)  
+    * **Estimación (Story Points): 3**  
     * **Justificación:** Requiere la escritura de múltiples tipos de pruebas y la configuración del entorno de testing. Aunque no es desarrollo de una feature nueva, asegurar la calidad de una funcionalidad tan crítica requiere un esfuerzo significativo.
 
 ## 4. Creación, Priorización y Análisis del Product Backlog con el proceso de "Prompt Engineering"
@@ -210,24 +210,23 @@ Instrucciones para el Análisis y Estimación:
 
 Para cada una de las historias de usuario (US-001, US-002, US-003), realice una estimación y análisis detallado considerando los siguientes criterios:
 
-Impacto en el Usuario y Valor del Negocio: Evalúe la importancia de la funcionalidad para los roles clave (Reclutador, Candidato, Manager de Contratación) y su contribución directa a los objetivos de negocio de LTI (e.g., eficiencia en la contratación, experiencia del candidato).
-Urgencia: Determine la prioridad de implementación basándose en la necesidad operativa inmediata, las tendencias del mercado y el feedback potencial de los usuarios.
-Complejidad y Esfuerzo Estimado: Proporcione una estimación del esfuerzo de implementación (por ejemplo, en Puntos de Historia o Tallas T-Shirt: S, M, L, XL), considerando la complejidad técnica (frontend, backend, integración, pruebas).
+Impacto en el Usuario y Valor del Negocio: Evalúe la importancia de la funcionalidad para los roles clave (Reclutador, Candidato, Manager de Contratación) y su contribución directa a los objetivos de negocio de LTI (e.g., eficiencia en la contratación, experiencia del candidato).  
+Urgencia: Determine la prioridad de implementación basándose en la necesidad operativa inmediata, las tendencias del mercado y el feedback potencial de los usuarios.  
+Complejidad y Esfuerzo Estimado: Proporcione una estimación del esfuerzo de implementación (por ejemplo, en Puntos de Historia o Tallas T-Shirt: S, M, L, XL), considerando la complejidad técnica (frontend, backend, integración, pruebas).  
 Riesgos y Dependencias: Identifique posibles riesgos técnicos o de negocio, y las dependencias entre las historias de usuario (ej. ¿Qué historia debe completarse antes que otra?).
 
-Formato de Entrega:
+Formato de Entrega: Presente los resultados en una tabla Markdown clara y estructurada que incluya las siguientes columnas para cada item del backlog:  
 
-Presente los resultados en una tabla Markdown clara y estructurada que incluya las siguientes columnas para cada item del backlog:
-ID de la Historia de Usuario
-Título
-Rol Principal del Usuario
-Impacto y Valor
-Urgencia
-Esfuerzo Estimado
-Riesgos y Dependencias Clave
+ID de la Historia de Usuario  
+Título  
+Rol Principal del Usuario  
+Impacto y Valor  
+Urgencia  
+Esfuerzo Estimado  
+Riesgos y Dependencias Clave  
 Información Adicional Relevante:
-Roles Involucrados: Reclutador, Candidato, Manager de Contratación.
-Estado Inicial del Sistema: Se asume un entorno de desarrollo con la infraestructura básica para manejo de usuarios y datos de ofertas.
+Roles Involucrados: Reclutador, Candidato, Manager de Contratación.  
+Estado Inicial del Sistema: Se asume un entorno de desarrollo con la infraestructura básica para manejo de usuarios y datos de ofertas.  
 Nota: Utilice la información de las user stories US-001, US-002 y US-003 proporcionadas anteriormente como base para este análisis."
 
 **Resultado generado con el Prompt #3:**
