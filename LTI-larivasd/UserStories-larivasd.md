@@ -1,4 +1,3 @@
-
 # Documento de Planificación Inicial para LTI: El ATS del Futuro
 
 ## 1. Generación de User Stories Clave
@@ -6,33 +5,33 @@
 A continuación se presentan tres User Stories fundamentales para el arranque del producto, derivadas directamente de los casos de uso de gestión de ofertas y candidatos.
 
 ---
-**ID:** US-001
-**Título:** Creación y publicación de ofertas de empleo
-**Como un:** Reclutador
-**Quiero:** Crear, guardar y publicar una nueva oferta de empleo con todos sus detalles (título, descripción, requisitos, etc.)
-**Para:** Atraer candidatos calificados y comenzar el proceso de selección de manera formal.
+**ID:** US-001  
+**Título:** Creación y publicación de ofertas de empleo  
+**Como un:** Reclutador  
+**Quiero:** Crear, guardar y publicar una nueva oferta de empleo con todos sus detalles (título, descripción, requisitos, etc.)  
+**Para:** Atraer candidatos calificados y comenzar el proceso de selección de manera formal.  
 **Criterios de Aceptación:**
 * **Dado que** estoy en el panel de gestión de ofertas, **cuando** hago clic en "Crear Nueva Oferta", **entonces** se me presenta un formulario con campos para título, descripción, departamento, ubicación y requisitos.
 * **Dado que** he llenado todos los campos obligatorios del formulario, **cuando** hago clic en "Guardar como Borrador", **entonces** la oferta se guarda en el sistema con un estado "Borrador" y no es visible públicamente.
 * **Dado que** estoy editando una oferta en estado "Borrador", **cuando** hago clic en "Publicar", **entonces** la oferta cambia su estado a "Publicada", se vuelve visible en el portal de carreras y se genera una URL única para compartirla.
 
 ---
-**ID:** US-002
-**Título:** Aplicación a una oferta de empleo
-**Como un:** Candidato
-**Quiero:** Enviar mi aplicación a una oferta de empleo publicada, adjuntando mi CV y completando mis datos básicos.
-**Para:** Poder ser considerado para la vacante que me interesa.
+**ID:** US-002  
+**Título:** Aplicación a una oferta de empleo  
+**Como un:** Candidato  
+**Quiero:** Enviar mi aplicación a una oferta de empleo publicada, adjuntando mi CV y completando mis datos básicos.  
+**Para:** Poder ser considerado para la vacante que me interesa.  
 **Criterios de Aceptación:**
 * **Dado que** he encontrado una oferta de empleo de mi interés, **cuando** hago clic en el botón "Aplicar", **entonces** se me presenta un formulario de aplicación sencillo.
 * **Dado que** estoy en el formulario de aplicación, **cuando** completo mi nombre, correo electrónico, teléfono y adjunto mi CV (en formato PDF o DOCX), **entonces** el botón "Enviar Aplicación" se habilita.
 * **Dado que** he enviado mi aplicación, **cuando** el sistema la procesa exitosamente, **entonces** soy redirigido a una página de confirmación y recibo un correo electrónico automático agradeciendo mi postulación.
 
 ---
-**ID:** US-003
-**Título:** Revisión de candidatos por oferta
-**Como un:** Reclutador o Manager de Contratación
-**Quiero:** Ver una lista de todos los candidatos que han aplicado a una oferta específica.
-**Para:** Poder revisar sus perfiles y decidir los siguientes pasos en el proceso.
+**ID:** US-003  
+**Título:** Revisión de candidatos por oferta  
+**Como un:** Reclutador o Manager de Contratación  
+**Quiero:** Ver una lista de todos los candidatos que han aplicado a una oferta específica.  
+**Para:** Poder revisar sus perfiles y decidir los siguientes pasos en el proceso.  
 **Criterios de Aceptación:**
 * **Dado que** estoy en la vista de una oferta "Publicada", **cuando** hago clic en la pestaña "Candidatos", **entonces** se muestra una lista con el nombre, fecha de aplicación y estado actual de cada candidato.
 * **Dado que** veo la lista de candidatos, **cuando** hago clic en el nombre de un candidato, **entonces** puedo ver su perfil completo, incluyendo los datos que proporcionó y un enlace para descargar su CV.
@@ -45,51 +44,55 @@ A continuación se presentan tres User Stories fundamentales para el arranque de
 Se ha elegido la User Story de mayor prioridad, **US-001: Creación y publicación de ofertas de empleo**, para desglosarla en tickets técnicos.
 
 ---
-**ID del Ticket:** T-001
-**Título:** Diseñar y migrar el esquema de la base de datos para "Ofertas"
-**Descripción:** Crear y ejecutar el script de migración para la tabla `job_offers` en la base de datos. La tabla debe incluir campos como `id`, `title`, `description`, `department`, `location`, `requirements`, `status` ('draft', 'published', 'archived'), `created_at`, `published_at`.
-**Tipo de Ticket:** Tarea Técnica
-**User Story Padre:** US-001
+**ID del Ticket:** T-001  
+**Título:** Diseñar y migrar el esquema de la base de datos para "Ofertas"  
+**Descripción:** Crear y ejecutar el script de migración para la tabla `job_offers` en la base de datos. La tabla debe incluir campos como `id`, `title`, `description`, `department`, `location`, `requirements`, `status` ('draft', 'published', 'archived'), `created_at`, `published_at`.  
+**Tipo de Ticket:** Tarea Técnica  
+**User Story Padre:** US-001  
 **Criterios de Aceptación:**
 * El script de migración se ejecuta sin errores en el entorno de desarrollo.
 * La tabla `job_offers` existe en la base de datos con todos los campos y tipos de datos correctos.
-* Se crea un script "down" para revertir la migración de forma segura.
+* Se crea un script "down" para revertir la migración de forma segura.  
+
 **Asignado a (Equipo Sugerido):** Backend / DevOps
 
 ---
-**ID del Ticket:** T-002
-**Título:** Crear endpoint de API (POST/PUT) para guardar y actualizar ofertas
-**Descripción:** Desarrollar los endpoints de la API REST para manejar la creación (`POST /api/offers`) y actualización (`PUT /api/offers/{id}`) de las ofertas de empleo. Debe incluir lógica de validación de datos en el backend.
-**Tipo de Ticket:** Feature
-**User Story Padre:** US-001
+**ID del Ticket:** T-002  
+**Título:** Crear endpoint de API (POST/PUT) para guardar y actualizar ofertas  
+**Descripción:** Desarrollar los endpoints de la API REST para manejar la creación (`POST /api/offers`) y actualización (`PUT /api/offers/{id}`) de las ofertas de empleo. Debe incluir lógica de validación de datos en el backend.  
+**Tipo de Ticket:** Feature  
+**User Story Padre:** US-001  
 **Criterios de Aceptación:**
 * Una solicitud `POST` a `/api/offers` con datos válidos crea un nuevo registro en la tabla `job_offers` y devuelve un código 201.
 * Una solicitud `PUT` a `/api/offers/{id}` con datos válidos actualiza el registro correspondiente y devuelve un código 200.
-* Enviar datos inválidos (ej. título vacío) a cualquiera de los endpoints devuelve un error de validación 422 con mensajes claros.
+* Enviar datos inválidos (ej. título vacío) a cualquiera de los endpoints devuelve un error de validación 422 con mensajes claros.  
+
 **Asignado a (Equipo Sugerido):** Backend
 
 ---
-**ID del Ticket:** T-003
-**Título:** Desarrollar la interfaz de usuario (UI) para el formulario de creación/edición de ofertas
-**Descripción:** Construir el componente de frontend (React/Vue/Angular) que renderiza el formulario para crear y editar ofertas. Debe incluir campos de texto, un editor de texto enriquecido para la descripción y botones para "Guardar como Borrador" y "Publicar".
-**Tipo de Ticket:** Feature
-**User Story Padre:** US-001
+**ID del Ticket:** T-003  
+**Título:** Desarrollar la interfaz de usuario (UI) para el formulario de creación/edición de ofertas  
+**Descripción:** Construir el componente de frontend (React/Vue/Angular) que renderiza el formulario para crear y editar ofertas. Debe incluir campos de texto, un editor de texto enriquecido para la descripción y botones para "Guardar como Borrador" y "Publicar".  
+**Tipo de Ticket:** Feature  
+**User Story Padre:** US-001  
 **Criterios de Aceptación:**
 * El formulario se muestra correctamente con todos los campos definidos.
 * El estado del formulario se gestiona correctamente (carga, envío, errores).
-* Los botones de acción llaman a los endpoints de la API correspondientes (creados en T-002) al ser presionados.
+* Los botones de acción llaman a los endpoints de la API correspondientes (creados en T-002) al ser presionados.  
+
 **Asignado a (Equipo Sugerido):** Frontend
 
 ---
-**ID del Ticket:** T-004
-**Título:** Plan de pruebas y ejecución para la gestión de ofertas
-**Descripción:** Crear y ejecutar un plan de pruebas integral para la funcionalidad completa de creación, guardado y publicación de ofertas. Esto incluye pruebas unitarias para el backend, pruebas de componentes para el frontend y pruebas E2E (End-to-End) del flujo completo.
-**Tipo de Ticket:** Tarea Técnica
-**User Story Padre:** US-001
+**ID del Ticket:** T-004  
+**Título:** Plan de pruebas y ejecución para la gestión de ofertas  
+**Descripción:** Crear y ejecutar un plan de pruebas integral para la funcionalidad completa de creación, guardado y publicación de ofertas. Esto incluye pruebas unitarias para el backend, pruebas de componentes para el frontend y pruebas E2E (End-to-End) del flujo completo.  
+**Tipo de Ticket:** Tarea Técnica  
+**User Story Padre:** US-001  
 **Criterios de Aceptación:**
 * La cobertura de pruebas unitarias para la lógica del backend es superior al 80%.
 * El flujo E2E (abrir formulario -> llenar datos -> guardar borrador -> editar -> publicar) se ejecuta exitosamente en un entorno de pruebas automatizado.
-* Se han verificado manualmente los casos de error y los flujos alternativos.
+* Se han verificado manualmente los casos de error y los flujos alternativos.  
+
 **Asignado a (Equipo Sugerido):** QA / Fullstack
 
 ---
@@ -99,20 +102,20 @@ Se ha elegido la User Story de mayor prioridad, **US-001: Creación y publicaci�
 A continuación, se añade la estimación de esfuerzo a cada ticket utilizando Puntos de Historia (Story Points) basados en la secuencia de Fibonacci.
 
 * **ID del Ticket: T-001** (Diseñar y migrar el esquema de la base de datos)
-    * **Estimación (Story Points): 2**
-    * **Justificación:** Tarea bien definida con baja complejidad. Requiere conocimiento de la estructura de la base de datos, pero la ejecución es rápida.
+    * **Estimación (Story Points): 2**
+    * **Justificación:** Tarea bien definida con baja complejidad. Requiere conocimiento de la estructura de la base de datos, pero la ejecución es rápida.
 
 * **ID del Ticket: T-002** (Crear endpoint de API)
-    * **Estimación (Story Points): 3**
-    * **Justificación:** Es un trabajo de desarrollo estándar, pero implica lógica de negocio (validación, manejo de estados) que añade una complejidad moderada.
+    * **Estimación (Story Points): 3**
+    * **Justificación:** Es un trabajo de desarrollo estándar, pero implica lógica de negocio (validación, manejo de estados) que añade una complejidad moderada.
 
 * **ID del Ticket: T-003** (Desarrollar la interfaz de usuario)
-    * **Estimación (Story Points): 5**
-    * **Justificación:** La creación de formularios robustos en el frontend suele ser compleja. Implica gestión del estado, validación en el cliente, interacción con un editor de texto enriquecido y comunicación asíncrona con la API, lo que representa un esfuerzo considerable.
+    * **Estimación (Story Points): 5**
+    * **Justificación:** La creación de formularios robustos en el frontend suele ser compleja. Implica gestión del estado, validación en el cliente, interacción con un editor de texto enriquecido y comunicación asíncrona con la API, lo que representa un esfuerzo considerable.
 
 * **ID del Ticket: T-004** (Plan de pruebas y ejecución)
-    * **Estimación (Story Points): 3**
-    * **Justificación:** Requiere la escritura de múltiples tipos de pruebas y la configuración del entorno de testing. Aunque no es desarrollo de una feature nueva, asegurar la calidad de una funcionalidad tan crítica requiere un esfuerzo significativo.
+    * **Estimación (Story Points): 3**
+    * **Justificación:** Requiere la escritura de múltiples tipos de pruebas y la configuración del entorno de testing. Aunque no es desarrollo de una feature nueva, asegurar la calidad de una funcionalidad tan crítica requiere un esfuerzo significativo.
 
 ## 4. Creación, Priorización y Análisis del Product Backlog con el proceso de "Prompt Engineering"
 
@@ -130,13 +133,13 @@ Formato: Presenta el backlog como una tabla con las siguientes columnas: ID, Use
 
 Este es el Product Backlog inicial para el MVP de LTI, priorizado con la metodología MoSCoW para asegurar la entrega de valor fundamental en las primeras iteraciones.
 
-| ID       | User Story (Título)                        | Prioridad (MoSCoW) |
+| ID       | User Story (Título)                        | Prioridad (MoSCoW) |
 | :------- | :----------------------------------------- | :----------------- |
 | **US-004** | Inicio de sesión seguro para usuarios internos | **Must-have** |
-| **US-001** | Creación y publicación de ofertas de empleo      | **Must-have** |
-| **US-002** | Aplicación a una oferta de empleo              | **Must-have** |
-| **US-003** | Revisión de candidatos por oferta              | **Must-have** |
-| **US-005** | Añadir notas y calificaciones a candidatos     | **Should-have** |
+| **US-001** | Creación y publicación de ofertas de empleo      | **Must-have** |
+| **US-002** | Aplicación a una oferta de empleo              | **Must-have** |
+| **US-003** | Revisión de candidatos por oferta              | **Must-have** |
+| **US-005** | Añadir notas y calificaciones a candidatos     | **Should-have** |
 
 * **US-004 (Must-have):** Sin autenticación, no hay sistema. Es un requisito fundacional.
 * **US-001, US-002, US-003 (Must-have):** Juntas, estas tres historias conforman el ciclo de vida mínimo y esencial de un ATS: publicar una vacante, recibir candidatos y poder revisarlos. Sin esto, el producto no cumple su propósito principal.
@@ -297,8 +300,8 @@ Los tres prompts generaron backlogs válidos, pero el **Prompt #3 (Mejorado)** d
 
 El resultado del **Prompt #3** es superior porque la **especificidad** en el prompt garantiza un análisis más profundo. Al definir el contexto, los roles y el formato de salida detallado, el prompt:
 
-1.  **Alinea el Resultado con el Negocio:** Al especificar el contexto del proyecto (LTI) y los roles, el análisis de impacto y valor fue más relevante.
-2.  **Mejora la Planificación:** La solicitud de estimación de esfuerzo y análisis de riesgos proporciona métricas cruciales para la planificación de sprints.
-3.  **Optimiza el Formato de Salida:** La solicitud de una tabla estructurada y detallada facilitó la presentación de la información de forma clara y lista para su uso.
+1.  **Alinea el Resultado con el Negocio:** Al especificar el contexto del proyecto (LTI) y los roles, el análisis de impacto y valor fue más relevante.
+2.  **Mejora la Planificación:** La solicitud de estimación de esfuerzo y análisis de riesgos proporciona métricas cruciales para la planificación de sprints.
+3.  **Optimiza el Formato de Salida:** La solicitud de una tabla estructurada y detallada facilitó la presentación de la información de forma clara y lista para su uso.
 
 El **Prompt #3** no solo prioriza el backlog, sino que también entrega las herramientas esenciales para la planificación y ejecución, demostrando cómo la claridad y el detalle en las instrucciones resultan en un análisis de mayor calidad y utilidad.
